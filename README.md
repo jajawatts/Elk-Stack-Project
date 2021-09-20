@@ -24,15 +24,11 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 ​
 Load balancing ensures that the application will be highly secure, in addition to restricting access to the network.
-        What aspect of security do load balancers protect?
         Load balancers evenly distribute HTTP traffic to the servers, preventing server attacks such as DDoS attacks
-        What is the advantage of a jump box?
         Jump boxes provide secure ssh connection to the server
 ​
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
-        What does Filebeat watch for?
         Filebeat watches for changes by collecting and logging files and events; forwarding them to Kibana for analysis.
-        What does Metricbeat record?
         Metricbeat is installed on a host to monitor and record performance metrics.
 The configuration details of each machine may be found below.
 
@@ -53,7 +49,6 @@ Only the ELK Server machine can accept connections from the Internet. Access to 
 Workstation 108.252.132.253 through TCP on port 5601.
 ​
 Machines within the network can only be accessed by workstation and the jumpbox.
-- Which machine did you allow to access your ELK VM? What was its IP address?
   I used Jump-Box-Provisioner IP 40.78.9.196 SSH port 22 to access my ELK VM
 ​
 A summary of the access policies in place can be found in the table below.
