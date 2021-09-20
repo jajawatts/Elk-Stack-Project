@@ -6,12 +6,12 @@ The files in this repository were used to configure the network depicted below.
 ​
 ![Elk_Stack_Project](https://drive.google.com/file/d/1s1rGbUVWDA2J-YcoJa9a10WMmyx_-2-A/view?usp=sharing)
 ​
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the /etc/ansible/ file may be used to install only certain pieces of it, such as Filebeat.
 ​
-  - /etc/ansible/elk.yml
+ 
 ​
 This document contains the following details:
-- Description of the Topologu
+- Description of the Topology
 - Access Policies
 - ELK Configuration
   - Beats in Use
@@ -27,7 +27,7 @@ Load balancing ensures that the application will be highly secure, in addition t
         What aspect of security do load balancers protect?
         Load balancers evenly distribute HTTP traffic to the servers, preventing server attacks such as DDoS attacks
         What is the advantage of a jump box?
-        Jump boxes provide secure connection to the server
+        Jump boxes provide secure ssh connection to the server
 ​
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
         What does Filebeat watch for?
@@ -35,7 +35,7 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
         What does Metricbeat record?
         Metricbeat is installed on a host to monitor and record performance metrics.
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
+
 ​
 | Name          | Function    | IP Address  | Operating System |
 |---------------|-------------|-------------|------------------|
@@ -54,26 +54,23 @@ Workstation 108.252.132.253 through TCP on port 5601.
 ​
 Machines within the network can only be accessed by workstation and the jumpbox.
 - Which machine did you allow to access your ELK VM? What was its IP address?
-  I used Jump-Box-Provisioner IP 20.102.84.195 SSH port 22 to access my ELK VM and its IP address is 13.89.51.194
+  I used Jump-Box-Provisioner IP 40.78.9.196 SSH port 22 to access my ELK VM
 ​
 A summary of the access policies in place can be found in the table below.
 ​
 | Name         | Publicly Accessible | Allowed IP Addresses |
 |--------------|---------------------|----------------------|
-| Jump Box     | No                  | 20.102.84.195        |
-| Web1-DVWA    | No                  | 10.0.0.5             |
-| Web2-DVWA    | No                  | 10.0.0.6             |
-| ELK Server   | No                  | 13.89.51.194         |
-| Load Balancer| No                  | 52.150.8.188         |
+| Jump Box     | No                  | 108.252.132.253        |
+| Web1-DVWA    | No                  | 10.0.0.4             |
+| Web2-DVWA    | No                  | 10.0.0.4             |
+| ELK Server   | No                  | 108.252.132.253         |
+| Load Balancer| No                  | 108.252.132.253         |
 ​
 ### Elk Configuration
 ​
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- What is the main advantage of automating configuration with Ansible?
-  Ansible will quickly make changes to the system, rather than doing each one manually.
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because ansible will quickly make changes to the system, rather than doing each one manually.
 ​
 The playbook implements the following tasks:
-In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc.
 ... Install docker.io
 ... Install pip3
 ... Install Docker python module
@@ -82,8 +79,7 @@ In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Do
 ​
 ​
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
-​
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+​https://docs.google.com/document/d/15dyIFnC61s6iHGxohCHbokXOJaeel1-uKYatqAB7-bk/edit?usp=sharing
 ​
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -95,7 +91,6 @@ We have installed the following Beats on these machines:
         MetricBeats
 ​
 These Beats allow us to collect the following information from each machine:
-- In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc.
 ​
 FileBeats are used as a lightweight shipper for forwarding and centralizing log data. The data FileBeat collects is about changes in the filesystem. An example of a FileBeat are Apache Access Logs that can be used for monitoring traffic to your service.
 MetricBeats collect machine metrics, such as uptime. They are installed on different servers in my environment and are used for monitoring performance.
